@@ -50,10 +50,10 @@ def writeFile(fileName, lines):
     for line in lines:
         file.write(line + "\n")
    
-
-fileName = "ALyingWitchAndAWarden"
-lines = readFile(fileName)
-lines = stripNewLine(lines)
-lines = stripBrackets(lines)
-lines = stripDoubleSpaces(lines)
-writeFile(fileName, lines)
+episodeNames = ["AdventuresInTheElements", "AgonyOfAWitch", "ALyingWitchAndAWarden", "AnySportInAStorm", "CloudsOnTheHorizon", "Covention", "EchoesOfThePast", "EclipseLake", "EdasRequiem", "EdgeOfTheWorld", "ElsewhereAndElsewhen", "EnchantingGromFright", "EscapeOfThePalisman", "EscapingExpulsion", "FolliesAtTheCovenDayParade", "ForTheFuture", "HollowMind", "HootysMovingHassle", "HuntingPalismen", "IWasATeenageAbomination", "KeepingUpAFearAnces", "KingsTide", "KnockKnockKnockinOnHootysDoor", "LabyrinthRunners", "LostInLanguage", "OnceUponASwap", "OTitanWhereArtThou", "ReachingOut", "ReallySmallProblems", "SenseAndInsensitivity", "SeparateTides", "SomethingVenturedSomeoneFramed", "ThanksToThem", "TheFirstDay", "TheIntruder", "ThemsTheBreaksKid", "ThroughTheLookingGlassRuins", "UnderstandingWillow", "WatchingAndDreaming", "WingItLikeWitches", "WitchesBeforeWizards", "YesterdaysLie", "YoungBloodOldSouls"]
+for episode in episodeNames:
+    lines = readFile(episode)
+    lines = stripNewLine(lines)
+    lines = stripBrackets(lines)
+    lines = stripDoubleSpaces(lines)
+    writeFile(episode, lines)
