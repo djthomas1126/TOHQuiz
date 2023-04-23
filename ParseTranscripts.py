@@ -3,7 +3,7 @@ import os
 def readFile(fileName):
 
     directory = os.path.dirname(__file__)
-    directory += "\\OldTranscripts\\" + fileName + ".txt"
+    directory += "\\OriginalTranscripts\\" + fileName + ".txt"
 
     file = open(directory, encoding="utf-8")
     lines = file.readlines()
@@ -45,8 +45,18 @@ def stripDoubleSpaces(lines):
         updatedLines.append(updatedLine)
     return updatedLines
 
-def writeFile(fileName, lines):
-    file = open(os.path.dirname(__file__) + "\\Transcripts\\" + fileName + ".txt", "w")
+def stripNames(lines):
+    updatedLines = []
+    for line in lines:
+        updatedLines.append(line[line.index(":") + 2:])
+    return updatedLines
+
+def writeFile(fileName, lines, named):
+    if named:
+        path = "Named"
+    else:
+        path = "Unnamed"
+    file = open(os.path.dirname(__file__) + "\\" + path + "Transcripts\\" + fileName + ".txt", "w")
     for line in lines:
         file.write(line + "\n")
    
@@ -56,4 +66,6 @@ for episode in episodeNames:
     lines = stripNewLine(lines)
     lines = stripBrackets(lines)
     lines = stripDoubleSpaces(lines)
-    writeFile(episode, lines)
+    writeFile(episode, lines, True)
+    lines = stripNames(lines)
+    writeFile(episode, lines, False)
