@@ -59,8 +59,9 @@ def writeFile(fileName, lines, named):
     file = open(os.path.dirname(__file__) + "\\" + path + "Transcripts\\" + fileName + ".txt", "w")
     for line in lines:
         file.write(line + "\n")
-   
-episodeNames = ["AdventuresInTheElements", "AgonyOfAWitch", "ALyingWitchAndAWarden", "AnySportInAStorm", "CloudsOnTheHorizon", "Covention", "EchoesOfThePast", "EclipseLake", "EdasRequiem", "EdgeOfTheWorld", "ElsewhereAndElsewhen", "EnchantingGromFright", "EscapeOfThePalisman", "EscapingExpulsion", "FolliesAtTheCovenDayParade", "ForTheFuture", "HollowMind", "HootysMovingHassle", "HuntingPalismen", "IWasATeenageAbomination", "KeepingUpAFearAnces", "KingsTide", "KnockKnockKnockinOnHootysDoor", "LabyrinthRunners", "LostInLanguage", "OnceUponASwap", "OTitanWhereArtThou", "ReachingOut", "ReallySmallProblems", "SenseAndInsensitivity", "SeparateTides", "SomethingVenturedSomeoneFramed", "ThanksToThem", "TheFirstDay", "TheIntruder", "ThemsTheBreaksKid", "ThroughTheLookingGlassRuins", "UnderstandingWillow", "WatchingAndDreaming", "WingItLikeWitches", "WitchesBeforeWizards", "YesterdaysLie", "YoungBloodOldSouls"]
+
+file = open("EpisodeNames.txt")   
+episodeNames = file.readlines()
 for episode in episodeNames:
     lines = readFile(episode)
     lines = stripNewLine(lines)
