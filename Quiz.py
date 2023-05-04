@@ -2,10 +2,10 @@ import random
 import os
 import time
 
-namesFile = open("EpisodeNames.txt")
-episodeNames = namesFile.readlines()
-
 directory = os.path.dirname(__file__)
+
+namesFile = open(directory + "\\EpisodeNames.txt")
+episodeNames = namesFile.readlines()
 
 def generateQuote(speakerGiven):
     episodeIndex = random.randint(0, len(episodeNames) - 1)
